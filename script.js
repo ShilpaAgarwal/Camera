@@ -1,5 +1,5 @@
 let videoElem = document.querySelector("video");
-let audioElem = document.querySelector("audio");
+// let audioElem = document.querySelector("audio");
 let recordBtn = document.querySelector("button");
 let constraint = {
     audio: true,
@@ -17,10 +17,11 @@ userMediaPromise
     .then(function (stream) {
         // browser stream is given to audio and video
         videoElem.srcObject = stream;
-        audioElem.srcObject = stream;
+        // audioElem.srcObject = stream;
         // after this recording can be enabled
         mediaRecordingObjectForCurrStream = new MediaRecorder(stream);
         // camera recording add -> recording array
+        console.log(mediaRecordingObjectForCurrStream);
         mediaRecordingObjectForCurrStream.ondataavailable = function (e) {
             recording.push(e.data);
         };
